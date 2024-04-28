@@ -14,8 +14,6 @@ import java.util.stream.Collectors;
 @Service
 public class BookServiceImpl implements BookService {
 
-    @Autowired
-    private Connection connection;
 
     Map<String,Book> bookMap = new HashMap<>();
 

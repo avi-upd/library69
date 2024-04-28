@@ -14,8 +14,8 @@ import java.util.Objects;
 @Configuration
 public class DBConfiguration {
 
-    @Value("${mysql-host}")
-    String host;
+    @Value("${mysql-uri}")
+    String uri;
 
     @Value("${mysql-username}")
     String username;
@@ -24,13 +24,13 @@ public class DBConfiguration {
     String password;
 
 
-    @Bean("prodDatabase")
+    @Bean("Database")
     public Connection mysqlConnection(){
         System.out.println("I am getting configured");
-        System.out.println("Host : "+host+" Username : "+username+" Password : "+password);
+        System.out.println("Host : "+uri+" Username : "+username+" Password : "+password);
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://"+host+"/library",username,password);
+            connection = DriverManager.getConnection(uri,username,password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
