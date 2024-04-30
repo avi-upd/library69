@@ -1,24 +1,26 @@
 package com.abhi.library69.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@Table(name = "users")
+@Entity
 public class User {
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String username;
 
     private String password;
-
-    private String role;
-
+    @Enumerated(EnumType.STRING)
+    private Role role;
     private String email;
-
-    private Integer phoneNumber;
+    private String phoneNumber;
 }

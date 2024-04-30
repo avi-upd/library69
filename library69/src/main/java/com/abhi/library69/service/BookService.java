@@ -12,18 +12,18 @@ public interface BookService {
 
     public void addBook(Book book);
 
-    public Set<Book> getAllBooks();
+    public List<Book> getAllBooks();
 
-    public Book getById(String Id);
+    public Book getById(Integer Id);
 
-    public Set<Book> getByGenre(Genre genre);
+    public List<Book> getByGenre(Genre genre);
 
-    public Set<Book> getByAuthor(String author);
+    public List<Book> getByAuthor(String author);
 
-    public void deleteBook(String bookId);
+    public void deleteBook(Integer bookId);
 
-    public Book updateBook(String Id,Book book);
+    public Book updateBook(Integer Id,Book book);
 
-    public void addReview(String bookId, Review review);
+    public void addReview(Integer bookId, Review review);
 
 }

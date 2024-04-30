@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DBService {
 
-    public Book addBook(Book book);
-
-    public List<Book> getAllBooks();
+//    public Book addBook(Book book);
+//
+//    public List<Book> getAllBooks();
 }

@@ -24,18 +24,18 @@ public class DBConfiguration {
     String password;
 
 
-    @Bean("Database")
-    public Connection mysqlConnection(){
-        System.out.println("I am getting configured");
-        System.out.println("Host : "+uri+" Username : "+username+" Password : "+password);
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(uri,username,password);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return connection;
-    }
+//    @Bean("Database")
+//    public Connection mysqlConnection(){
+//        System.out.println("I am getting configured");
+//        System.out.println("Host : "+uri+" Username : "+username+" Password : "+password);
+//        Connection connection = null;
+//        try {
+//            connection = DriverManager.getConnection(uri,username,password);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return connection;
+//    }
 
 //    @Bean("oracleDatabaseConnection")
 //    public Connection oracleConnection(){
