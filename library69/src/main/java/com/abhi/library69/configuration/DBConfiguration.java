@@ -14,14 +14,14 @@ import java.util.Objects;
 @Configuration
 public class DBConfiguration {
 
-    @Value("${mysql-uri}")
-    String uri;
-
-    @Value("${mysql-username}")
-    String username;
-
-    @Value("${mysql-password}")
-    String password;
+//    @Value("${mysql-uri}")
+//    String uri;
+//
+//    @Value("${mysql-username}")
+//    String username;
+//
+//    @Value("${mysql-password}")
+//    String password;
 
 
 //    @Bean("Database")

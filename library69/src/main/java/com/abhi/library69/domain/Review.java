@@ -1,23 +1,29 @@
 package com.abhi.library69.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "reviews")
+@Builder
 public class Review {
-    private String id; //not a part of request
 
+    @Id
+    @Column(name = "id",nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id; //not a part of request
     private String comment;
+    private Double rating;
 
-    private String reviewer;
-
-    private Double rating; // not a part of request
-
-    private String bookId;
+    //Review - Book
+    //There can be many reviews of one book -> ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.DETACH)
+    @JoinColumn(name = "book_id")//className_variableNameForId
+    private Book book;
 }

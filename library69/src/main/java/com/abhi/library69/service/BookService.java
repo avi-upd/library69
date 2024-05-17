@@ -3,6 +3,7 @@ package com.abhi.library69.service;
 import com.abhi.library69.domain.Book;
 import com.abhi.library69.domain.Genre;
 import com.abhi.library69.domain.Review;
+import com.abhi.library69.service.resource.BookResponse;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
@@ -24,6 +25,6 @@ public interface BookService {
 
     public Book updateBook(Integer Id,Book book);
 
-    public void addReview(Integer bookId, Review review);
+    //public void addReview(Integer bookId, Review review);
 
 }

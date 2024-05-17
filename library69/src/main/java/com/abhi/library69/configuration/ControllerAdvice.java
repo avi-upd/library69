@@ -18,20 +18,20 @@ import java.util.Map;
 public class ControllerAdvice {
 
     @ExceptionHandler(NullPointerException.class)
-    public ResponseEntity<?> handleNullPointerException(NullPointerException e){
-        return new ResponseEntity<>("Something went wrong, Please try again",HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<?> handleNullPointerException(NullPointerException e) {
+        return new ResponseEntity<>("Something went wrong, Please try again", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException e){
+    public ResponseEntity<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
 
-        Map<String,String> errorMap = new HashMap<>();
-        for(FieldError fieldError : e.getBindingResult().getFieldErrors()){
-            errorMap.put(fieldError.getField(),fieldError.getDefaultMessage());
+        Map<String, String> errorMap = new HashMap<>();
+        for (FieldError fieldError : e.getBindingResult().getFieldErrors()) {
+            errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
         }
 
 
-        return new ResponseEntity<>(errorMap,HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorMap, HttpStatus.BAD_REQUEST);
     }
-
 }
+

@@ -11,7 +11,6 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class BookRequest {
 
     @NotBlank(message = "Title cannot be blank")
@@ -26,6 +25,8 @@ public class BookRequest {
 
 
     public Book getBook(){
+
+
         return Book.builder()
                 .title(this.title).cost(this.cost)
                 .author(this.author).year(this.year)

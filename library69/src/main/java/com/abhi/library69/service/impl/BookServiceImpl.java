@@ -4,7 +4,9 @@ import com.abhi.library69.domain.Book;
 import com.abhi.library69.domain.Genre;
 import com.abhi.library69.domain.Review;
 import com.abhi.library69.repository.BookRepository;
+import com.abhi.library69.repository.ReviewRepository;
 import com.abhi.library69.service.BookService;
+import com.abhi.library69.service.resource.BookResponse;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +20,29 @@ public class BookServiceImpl implements BookService {
     @Autowired
     BookRepository bookRepository;
 
+    @Autowired
+    ReviewRepository reviewRepository;
+
 
     public void addBook(Book book){
 
         bookRepository.save(book);
     }
+
+//    public List<BookResponse> getAllBooks(){
+//
+//        List<Book> books = bookRepository.findAll();
+//        List<BookResponse> bookResponses = new ArrayList<>();
+//        for(Book book : books){
+//
+//            List<Review> reviews = reviewRepository.findByBookId(book.getId());
+//            bookResponses.add(BookResponse.builder().id(book.getId()).reviewList(reviews).title(book.getTitle()).author(book.getAuthor())
+//                            .rating(book.getRating()).build());
+//
+//        }
+//        return bookResponses;
+//    }
+
 
     public List<Book> getAllBooks(){
 
@@ -58,10 +78,16 @@ public class BookServiceImpl implements BookService {
         return book;
     }
 
-    @Override
-    public void addReview(Integer bookId, Review review) {
-        //
-    }
+
+//    @Override
+//    public void addReview(Integer bookId, Review review) {
+//
+//        Optional<Book> book = bookRepository.findById(bookId);
+//        if(book.isPresent()){
+//            Book b = book.get();
+//            b.getReviews().add(review);
+//        }
+//    }
 
 
 
