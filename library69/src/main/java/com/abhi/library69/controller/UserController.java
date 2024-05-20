@@ -6,12 +6,16 @@ import com.abhi.library69.domain.Genre;
 import com.abhi.library69.domain.Review;
 import com.abhi.library69.domain.User;
 import com.abhi.library69.service.BookService;
+import com.abhi.library69.service.UserService;
+import com.abhi.library69.service.impl.UserDetailServiceImpl;
 import com.abhi.library69.service.resource.BookResponse;
 import com.abhi.library69.service.resource.ReviewRequest;
+import com.abhi.library69.service.resource.UserRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +26,9 @@ public class UserController {
 
     @Autowired
     BookService bookService;
+
+    @Autowired
+    UserService userService;
 
 
     @GetMapping("/book")
@@ -43,6 +50,17 @@ public class UserController {
 
         return new ResponseEntity<>(bookService.getByGenre(genre),HttpStatus.OK);
     }
+
+    @PostMapping("register")
+    public ResponseEntity<?> register(@RequestBody @Valid UserRequest userRequest){
+
+        userService.addUser(userRequest.getUser());
+        return new ResponseEntity<>(HttpStatus.CREATED);
+
+    }
+
+
+
 
 
 //    @PostMapping("/{bookId}/review")

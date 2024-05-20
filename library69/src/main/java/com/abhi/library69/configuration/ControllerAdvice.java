@@ -1,6 +1,7 @@
 package com.abhi.library69.configuration;
 
 import ch.qos.logback.core.joran.sanity.Pair;
+import com.abhi.library69.exception.UserAlreadyExistsException;
 import jakarta.validation.constraints.Null;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,5 +34,14 @@ public class ControllerAdvice {
 
         return new ResponseEntity<>(errorMap, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<?> handleUserAlreadyExistsException(UserAlreadyExistsException e){
+        Map<String, String> errorMap = new HashMap<>();
+        errorMap.put("Message",e.getMessage());
+        return new ResponseEntity<>(errorMap,HttpStatus.BAD_REQUEST);
+    }
+
+
 }
 

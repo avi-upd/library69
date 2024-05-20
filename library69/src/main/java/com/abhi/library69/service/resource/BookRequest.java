@@ -15,7 +15,7 @@ public class BookRequest {
 
     @NotBlank(message = "Title cannot be blank")
     private String title;
-    @NotBlank(message = "Title cannot be blank")
+    @NotBlank(message = "Author cannot be blank")
     private String author;
     private Genre genre;
     @Min(value = 0,message = "Cost cannot be less than 0")
